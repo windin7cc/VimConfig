@@ -1,0 +1,9 @@
+airline.vim
+coc.vim
+emmet.vim
+guifont.vim
+leaderf.vim
+markdown-preview.vim
+nerdtree.vim
+plug.txt
+taglist.vim

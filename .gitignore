@@ -1,0 +1,5 @@
+vim*/
+!vimfiles/
+vimfiles/plugged
+bundle
+tags*
