@@ -1,40 +1,43 @@
 A repo stores my vim config for sync.
 
 *update or renew randomly...*
-¾í D µÄÎÄ¼þ¼Ð PATH ÁÐ±í
-¾íÐòÁÐºÅÎª 12EF-13F5
-D:\SOFTWARE\VIM\MY
-©À©¤appear
-©¦  ©¸©¤airline-theme
-©¦      ©¦  cool.vim
-©¦      ©¦  
-©¦      ©¸©¤t
-©¦              base16_google_dark.vim
-©¦              cobalt2.vim
-©¦              
-©À©¤plugin
-©¦  ©¦  load_plugins.vim
-©¦  ©¦  load_plugins_config.vim
-©¦  ©¦  plugins.txt
-©¦  ©¦  
-©¦  ©¸©¤config
-©¦      ©¦  airline.vim
-©¦      ©¦  bufexplorer.vim
-©¦      ©¦  coc.vim
-©¦      ©¦  easy-align.vim
-©¦      ©¦  emmet.vim
-©¦      ©¦  guifont.vim
-©¦      ©¦  leaderf.vim
-©¦      ©¦  markdown-preview.vim
-©¦      ©¦  nerdtree.vim
-©¦      ©¦  rainbow.vim
-©¦      ©¦  taglist.vim
-©¦      ©¦  
-©¦      ©¸©¤ycm
-©¦              ycm.vim
-©¦              ycm_extra_conf.py
-©¦              
-©¸©¤script
+
+---
+
+I made the structure:
+*under $VIM/*
+
+â”œâ”€appear
+â”‚  â””â”€airline-theme
+â”‚      â”‚  cool.vim
+â”‚      â”‚  
+â”‚      â””â”€t
+â”‚              base16_google_dark.vim
+â”‚              cobalt2.vim
+â”‚              
+â”œâ”€plugin
+â”‚  â”‚  load_plugins.vim
+â”‚  â”‚  load_plugins_config.vim
+â”‚  â”‚  plugins.txt
+â”‚  â”‚  
+â”‚  â””â”€config
+â”‚      â”‚  airline.vim
+â”‚      â”‚  bufexplorer.vim
+â”‚      â”‚  coc.vim
+â”‚      â”‚  easy-align.vim
+â”‚      â”‚  emmet.vim
+â”‚      â”‚  guifont.vim
+â”‚      â”‚  leaderf.vim
+â”‚      â”‚  markdown-preview.vim
+â”‚      â”‚  nerdtree.vim
+â”‚      â”‚  rainbow.vim
+â”‚      â”‚  taglist.vim
+â”‚      â”‚  
+â”‚      â””â”€ycm
+â”‚              ycm.vim
+â”‚              ycm_extra_conf.py
+â”‚              
+â””â”€script
         c++.vim
         c.vim
         common.vim
