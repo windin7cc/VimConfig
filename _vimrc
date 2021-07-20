@@ -1,88 +1,25 @@
-"set runtimepath+=~/.vim
-
-"set pythonthreedll=D:\\Software\\Python\\Python3.7\\python37.dll 
-
-"plug '[author]/[plugin]' default map to url: 'github.com/[author]/[plugin repo]' 
-"if installed, find plugins in runtime locations, and plug them.
-"silent! call plug#begin('~/.vim/plugged')
-"silent!
-"call plug#begin('$VIM/vimfiles/plugged')
-
-"code:
-"complete:
-	"Plug 'neoclide/coc.nvim', "{'branch':'release'}
-	"Plug 'ycm-core/YouCompleteMe' ",{'for':['c','c++']}
-	"Plug 'junegunn/vim-easy-align'
-
-"tag:
-	"Plug 'ludovicchabant/vim-gutentags'
-	"Plug 'vim-scripts/taglist.vim', {'for':['c','c++']}
-
-"other:
-	"Plug 'jiangmiao/auto-pairs'
-	"Plug 'junegunn/vim-easy-align'
-	"Plug 'scrooloose/nerdcommenter'
-	"Plug 'mattn/emmet-vim', {'for':'html'}
-	"Plug 'octol/vim-cpp-enhanced-highlight'
-	"Plug 'luochen1990/rainbow'
-"code$
-
-"snippet:
-	"Plug 'SirVer/ultisnips'
-	"Plug 'honza/vim-snippets'
-
-"search:
-	"Plug 'Yggdroot/LeaderF'
-
-"explore:
-	"Plug 'scrooloose/nerdtree',{'on':'NERDTreeToggle'}
-	"Plug 'kshenoy/vim-signature'
-
-"appearance:
-	"Plug 'schmich/vim-guifont'
-	"Plug 'vim-airline/vim-airline-themes'
-	"Plug 'vim-airline/vim-airline'
-	"Plug 'crusoexia/vim-monokai'
-
-"markdown:
-	"Plug 'iamcco/mathjax-support-for-mkdp' ",{'for':'md'}
-	"Plug 'iamcco/markdown-preview.vim' ",{'for':'md'}
-
-"other:
-	"Plug 'vim-scripts/DrawIt'
-
-"the plug itself: vim-plug, located in autoload
-"just put it's net address here to update
-"Plug 'junegunn/vim-plug'
-
-"silent!
-"call plug#end()
-
-"--plugin config:(temp)--
-"noremap 
-
-"open NERDTree when open vim
-"autocmd vimenter * NERDTree
-
-"quit NERDTree when quit vim
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
-"--plugin config$--
-
 "--source file:--
 "so(urce)
-so $VIM\my\vim-setting.vim
-so $VIM\my\script\def.vim
-so $VIM\my\script\time.vim
-so $VIM\my\script\common.vim
-so $VIM\my\script\compile.vim
-so $VIM\my\script\debug.vim
-"so $VIM\my\plugin\load_plugin_config.vim
+"let g:my_script='$VIM/my/script'
+"let vimset=g:my_script . '/' . 'vim-setting.vim'
+
+"so s:vimset
+
+so $VIM/my/script/vim-setting.vim
+so $VIM/my/script/def.vim
+so $VIM/my/script/time.vim
+so $VIM/my/script/common.vim
+so $VIM/my/script/compile.vim
+so $VIM/my/script/debug.vim
+so $Vim/my/plugin/load_plugins.vim
 "--source file$--
+
+color badwolf
+"purple phd molokai
 
 "--map:--
 "go to end to append
 map <F2> GA
-
 map <F5> :call Compile()<CR>
 map <F6> :call Run()<CR>
 map <C-F5> :call DebugCompile()<CR>
@@ -98,8 +35,11 @@ map <C-S-Tab> <C-w>W
 nnoremap gva ggVG
 
 "switch tab
-nnoremap <C-;><C-n> :tabnext<CR>
-nnoremap <C-;><C-p> :tabprevious<CR>
+
+"n(ext)
+nnoremap <C-;><C-n> :tabn<CR>
+"p(revious)
+nnoremap <C-;><C-p> :tabp<CR>
 
 "switch buffer
 nnoremap <C-n> :bn<CR>
@@ -130,11 +70,21 @@ noremap <expr>0 col('.')==1?'^':'0'
 "--nmap:--
 nmap <Leader>vrc :e $MYVIMRC<CR>
 
+"path:
+nmap <Leader>h :help 
 nmap <Leader>pw :pw<CR>
-
 nmap <Leader>bw :bw<CR>
 
-"path:
+"switch to the next buf, then delete the previous one.
+nmap <Leader>bc :bn<CR>:bd#<CR>
+
+nmap <Leader>ls :ls<CR>
+
+"edit files:
+nmap <Leader>vrc :e $MYVIMRC<CR>
+nmap <Leader>vpl :e $Vim/my/plugin/load_plugins.vim<CR>
+
+"enter path:
 ":cd<space> to trigger
 nmap <Leader>cd :cd
 nmap <Leader>cd. :cd %:h<CR>
@@ -146,11 +96,8 @@ nmap <S-Tab> V<
 "close the current window area.
 nnoremap zq :clo<CR>
 
-nnoremap cO O<Esc>j
-
 nnoremap co o<Esc>k
-
-nnoremap <Leader>h :help 
+nnoremap cO O<Esc>j
 
 "paste content in register +.
 "nnoremap <Leader>p "+p
@@ -162,7 +109,15 @@ nnoremap <Leader>h :help
 "nmap <Leader>ct ctags -R --c++-kinds=+px --fields=+iaS --extra=+q<CR> "for c++
 
 "nmap <silent><leader>e :explore<cr> 
-"--nleader$---
+
+"nmap <silent><leader>e :explore<cr> 
+
+"paste content in register +.
+"nnoremap <Leader>p "+p
+"nnoremap <Leader>f $s{<Esc>jcoki<Esc>
+"nnoremap <Leader>f $s{<CR>}<ESC>O
+
+"nmap <Leader>ct ctags -R --c++-kinds=+px --fields=+iaS --extra=+q<CR> "for c++
 
 "nnoremap zm I<!--<Esc>A--><Esc>
 "nnoremap zn ^4x$xxx
@@ -207,8 +162,12 @@ vnoremap < <gv
 "map keys to select history commands in cmd-line.
 cnoremap <C-j> <down>
 cnoremap <C-k> <up>
-"--cmap$--
 
+"cmap <Leader>plugl $Vim/my/script/vim-setting.vim
+"cmap <Leader>plugl $Vim/my/plugin/load_plugins.vim
+"cmap <Leader>plugc $Vim/my/plugin/load_plugins_config.vim
+
+"--cmap$--
 "--map$--
 
 "--abbr:--
