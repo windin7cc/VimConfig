@@ -1,11 +1,13 @@
-A repo stores my vim config for sync.
+## A repo stores my vim config for sync.
 
 *update or renew randomly...*
 
 ---
 
-I made the structure:
-*../$VIM/:*
+## structure:
+
+*I made all under $VIM/:*
+
 *last updated: 2021-7-20*
 
 ```
