@@ -7,6 +7,7 @@ A repo stores my vim config for sync.
 I made the structure:
 *../$VIM/:*
 
+```
 +---appear
 |   \---airline-theme
 |       |   cool.vim
@@ -91,4 +92,4 @@ D:\SOFTWARE\VIM\MY
         def.vim
         time.vim
         vim-setting.vim
-        
+```
