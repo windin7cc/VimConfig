@@ -3,19 +3,19 @@
 "let g:my_script='$VIM/my/script'
 "let vimset=g:my_script . '/' . 'vim-setting.vim'
 
-"so s:vimset
-
 so $VIM/my/script/vim-setting.vim
 so $VIM/my/script/def.vim
 so $VIM/my/script/time.vim
 so $VIM/my/script/common.vim
 so $VIM/my/script/compile.vim
 so $VIM/my/script/debug.vim
-so $Vim/my/plugin/load_plugins.vim
+so $Vim/my/plugin/load.vim
 "--source file$--
 
-color badwolf
+color dracula
 "purple phd molokai
+
+set complete=.,b
 
 "--map:--
 "go to end to append
@@ -32,18 +32,19 @@ map <C-Tab> <C-w>w
 map <C-S-Tab> <C-w>W
 
 "--nmap:--
-nnoremap gva ggVG
+nnoremap vaa ggVG
+nnoremap daa ggVGd
 
 "switch tab
 
 "n(ext)
-nnoremap <C-;><C-n> :tabn<CR>
+"nnoremap <C-;><C-n> :tabn<CR>
 "p(revious)
-nnoremap <C-;><C-p> :tabp<CR>
+"nnoremap <C-;><C-p> :tabp<CR>
 
 "switch buffer
-nnoremap <C-n> :bn<CR>
-nnoremap <C-p> :bp<CR>
+"nnoremap <C-n> :bn<CR>
+"nnoremap <C-p> :bp<CR>
 
 "map <silent>;sy :call ToggleSyntax()<CR>
 
@@ -82,7 +83,7 @@ nmap <Leader>ls :ls<CR>
 
 "edit files:
 nmap <Leader>vrc :e $MYVIMRC<CR>
-nmap <Leader>vpl :e $Vim/my/plugin/load_plugins.vim<CR>
+nmap <Leader>vpl :e $Vim/my/plugin/load.vim<CR>
 
 "enter path:
 ":cd<space> to trigger
@@ -110,8 +111,6 @@ nnoremap cO O<Esc>j
 
 "nmap <silent><leader>e :explore<cr> 
 
-"nmap <silent><leader>e :explore<cr> 
-
 "paste content in register +.
 "nnoremap <Leader>p "+p
 "nnoremap <Leader>f $s{<Esc>jcoki<Esc>
@@ -126,10 +125,14 @@ nnoremap <buffer> <CR> 0ye<C-W>w:tag <C-R>"<CR>
 "--nmap$--
 
 "--imap:--
-"map <C-n>:complete options match -> <C-x><C-n>:local match
+"map <C-n>,<C-p>:common complete -> <C-x><C-n>:local match
 inoremap <C-n> <C-x><C-n>
-"<C-x><C-n>:from current file -> <C-n>
+inoremap <C-p> <C-x><C-p>
+
+"map <C-x><C-n>,<C-x><C-p>:complete from current buffer -> <C-n>: common
 inoremap <C-x><C-n> <C-n>
+inoremap <C-x><C-p> <C-p>
+
 "a whole line 
 "inoremap <C-x><C-l> <C-l>
 "from dictionary
@@ -138,7 +141,6 @@ inoremap <C-x><C-n> <C-n>
 "inoremap <C-x><C-]> <C-]>
 "from file path
 "inoremap <C-x><C-f> <C-f>
-"complete$
 
 "imap <C-Tab> <Esc><C-w>w
 "imap <C-S-Tab> <Esc><C-w>W
@@ -153,6 +155,7 @@ vnoremap <tab> >gv
 vnoremap <S-Tab> <gv
 vnoremap > >gv
 vnoremap < <gv
+
 ""copy to win clipboard
 "vnoremap <Leader>y "+y
 "vnoremap _g y:exe "grep /" . escape(@", '\\/') . "/ *.c *.h"<CR>
@@ -162,6 +165,8 @@ vnoremap < <gv
 "map keys to select history commands in cmd-line.
 cnoremap <C-j> <down>
 cnoremap <C-k> <up>
+cnoremap <C-l> <right>
+cnoremap <C-h> <left>
 
 "cmap <Leader>plugl $Vim/my/script/vim-setting.vim
 "cmap <Leader>plugl $Vim/my/plugin/load_plugins.vim
@@ -173,7 +178,7 @@ cnoremap <C-k> <up>
 "--abbr:--
 "--iabbr:--
 "insert current working dir.
-iab <silent>cwd <C-R>=getcwd()<CR>
+"iab <silent>cwd <C-R>=getcwd()<CR>
 "--iabbr$--
 "--abbr$--
 

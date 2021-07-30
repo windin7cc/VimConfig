@@ -5,13 +5,13 @@
 "plug '[author]/[plugin]' default map to url: 'github.com/[author]/[plugin repo]' 
 "if installed, find plugins in runtime locations, and plug them.
 "silent! call plug#begin('~/.vim/plugged')
-"silent!
 call plug#begin('$VIM/vimfiles/plugged')
 
 "code:
 "complete:
 	"Plug 'neoclide/coc.nvim', "{'branch':'release'}
 	"Plug 'ycm-core/YouCompleteMe' ",{'for':['c','c++']}
+	Plug 'ervandew/supertab'
 
 "tag:
 	"Plug 'ludovicchabant/vim-gutentags'
@@ -42,8 +42,8 @@ call plug#begin('$VIM/vimfiles/plugged')
 
 "appearance:
 	"Plug 'schmich/vim-guifont'
-	Plug 'vim-airline/vim-airline-themes'
-	Plug 'vim-airline/vim-airline'
+	"Plug 'vim-airline/vim-airline-themes'
+	"Plug 'vim-airline/vim-airline'
 	"Plug 'crusoexia/vim-monokai'
 
 "markdown:
@@ -52,6 +52,7 @@ call plug#begin('$VIM/vimfiles/plugged')
 
 "other:
 	"Plug 'vim-scripts/DrawIt'
+	Plug 'vim/killersheep'
 
 "the plug itself: vim-plug, located in autoload
 "just put it's net address here to update
@@ -70,5 +71,4 @@ call plug#end()
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 "--plugin config$--
 
-so $VIM\my\plugin\load_plugins_config.vim
-"so ./load_plugins_config.vim
+so $VIM/my/plugin/config/load.vim

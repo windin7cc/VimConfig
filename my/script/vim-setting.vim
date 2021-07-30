@@ -1,4 +1,6 @@
-"--set:--
+set nocompatible "to vi.
+behave xterm
+
 let $LANG='en'
 set langmenu='en'
 
@@ -8,12 +10,6 @@ set fileencoding=utf-8
 
 "sequence to anticipate the encoding.
 "set fileencodings=cp936,ucs-bom,utf-8
-
-"double chars to display a char unit.
-"se ambiwidth=double
-
-set nocompatible "to vi.
-behave xterm
 
 filetype plugin indent on
 syntax enable
@@ -29,6 +25,9 @@ syntax enable
 "eic: to hide them.
 set guioptions=eic "default:egmrLtT
 
+"double chars to display a char unit.
+"se ambiwidth=double
+
 "font:
 "set guifont=黑体:h14:cGB2312:qCLEARTYPE
 "set guifont=DejaVu_Sans_Mono:h12:w7:cDEFAULT:qCLEARTYPE
@@ -39,15 +38,18 @@ se guifont=cascadia_code:h14
 set lines=20 columns=64
 
 set viminfo='10,\"100,:20,%,n~/.viminfo
+
 set wildmenu "enhance command line completion(show an item list).
 "char to invoke wildmode and select.
 set wildchar=<Tab>
 "form of 4 parts, each one explains what to do for [n] times when <wildchar> called.
 "set wildmode=longest,list,full
 set wildmode=full
+
 set gcr=a:blinkon0 "static cursor
+
+"or syntax
 "set foldmethod=indent
-"set foldmethod=syntax
 "set nofoldenable "no folder" when launching
 
 "set path+=D:\Software\mingw64\include
@@ -85,8 +87,10 @@ set hlsearch "heighlight search answers
 set undolevels=50
 set report=0 "always repot with command msg
 set synmaxcol=500 "let high-lighted columns<=100
+
 "set showmatch "show match of (..)
-set matchtime=2
+"set matchtime=2
+ 
 "set cursorline "hl the cursor at the line
 "set cursorcolumn "hl the column
 "set novisualbell
@@ -103,21 +107,18 @@ set backspace=indent,eol,start  " Make backspace work as you would expect.
 "Switch between buffers without having to save first.
 
 set hidden
-set laststatus=2 " Always show statusline.
 "set dispcay =lastline " Show as much as possible of the last line.
 set showmode "show current mode in command line.
 set showcmd "show typed content(incomplete commands) when more are expected.
 "set cmdheight=1 "cmd mode height
-"normal text. Each status line item is of the form:
-"%-0{minwid}.{maxwid}{item}
-"set statusline=%F%m%r%h%w\ [OS=%{&ff}]\ [FT=%y]\ [%l,%v]
-"influences when the last window will have a
-"status line: 0: never 1: when windows>=2 2: always
-set laststatus=2
+
 "share the clipboard of system with register: +,*.
 "in win they are the same as a public clip buffer, but in linux, * -> selected by mouse
 set clipboard^=unnamed,unnamedplus
-"set magic "used for pattern, default is magic
+
+"used for pattern, default is magic
+set magic
+
 "the row off cursor row.
 set scrolloff=0
 set ignorecase
@@ -139,8 +140,16 @@ set ruler
 "set listchars=eol:$,trail:-,tab:>-,extends:>,precedes:<,conceal:+
 set listchars=space:•,tab:➤-,trail:-,eol:\| "extends:>,precedes:<,conceal:+
 
+"normal text. Each status line item is of the form:
+"%-0{minwid}.{maxwid}{item}
+"influences when the last window will have a
+"status line: 0: never 1: when windows>=2 2: always
+"set statusline=%F%m%r%h%w\ [OS=%{&ff}]\ [FT=%y]\ [%l,%v]
+
 "chars used for the status line, folds and filler lines
 "set fillchars=stl:^,stlnc:-,vert:\│,fold:-,diff:-
+
+set laststatus=2 " Always show statusline.
 
 "set showbreak=↪
 
@@ -182,4 +191,3 @@ set iskeyword=@,48-57,_
 "set display on/off of vim procedure's title.
 set title titlestring=Notepad "%<%F%=%l/%L-%P titlelen=70
 "set winaltkeys=no "turn off <Alt> to GUI menu.
-"--set$--
